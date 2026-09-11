@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="14-day boating conditions for OTIUM - Port of Everett, Possession Sound, Marine Area 8-2. Tides, weather, go/no-go and open seasons.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light dark">
+<style>
+body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#E7ECEE;color:#10212A}
+img{max-width:100%}[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<title>OTIUM Conditions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#E7ECEE;
+  --surface:#FFFFFF;
+  --surface-2:#F3F6F7;
+  --ink:#10212A;
+  --ink-soft:#4B626F;
+  --ink-faint:#7C919C;
+  --rule:#CBD6DB;
+  --rule-strong:#A9BAC2;
+  --accent:#B5257A;
+  --go:#136F52;
+  --go-fill:#DCEFE7;
+  --warn:#9C6410;
+  --warn-fill:#F6EBD6;
+  --bad:#9A2B2B;
+  --bad-fill:#F6DEDE;
+  --tide-line:#2C6E8A;
+  --tide-fill:#D3E4EC;
+  --day-band:#FBF3D9;
+  --shadow:0 1px 2px rgba(16,33,42,.06),0 4px 14px rgba(16,33,42,.05);
+  --display:"IBM Plex Sans Condensed",'Helvetica Neue',Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0C181E;
+    --surface:#132530;
+    --surface-2:#182E3A;
+    --ink:#DEE9ED;
+    --ink-soft:#9CB3BD;
+    --ink-faint:#6D8794;
+    --rule:#26414F;
+    --rule-strong:#38596A;
+    --accent:#F07EBE;
+    --go:#5BC79E;
+    --go-fill:#123A2E;
+    --warn:#E0A945;
+    --warn-fill:#3A2C11;
+    --bad:#EE8080;
+    --bad-fill:#3B1B1B;
+    --tide-line:#6FB6D4;
+    --tide-fill:#173846;
+    --day-band:#23301F;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0C181E;
+  --surface:#132530;
+  --surface-2:#182E3A;
+  --ink:#DEE9ED;
+  --ink-soft:#9CB3BD;
+  --ink-faint:#6D8794;
+  --rule:#26414F;
+  --rule-strong:#38596A;
+  --accent:#F07EBE;
+  --go:#5BC79E;
+  --go-fill:#123A2E;
+  --warn:#E0A945;
+  --warn-fill:#3A2C11;
+  --bad:#EE8080;
+  --bad-fill:#3B1B1B;
+  --tide-line:#6FB6D4;
+  --tide-fill:#173846;
+  --day-band:#23301F;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--body);font-size:15px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1010px;margin:0 auto;padding-inline:20px;padding-block:32px 56px}
+
+/* ---------- masthead ---------- */
+.mast{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 24px;
+  padding-bottom:14px;border-bottom:2px solid var(--ink)}
+.mast-id{flex:1 1 auto;min-width:240px}
+.eyebrow{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 4px}
+h1{font-family:var(--display);font-size:clamp(30px,6vw,42px);font-weight:700;
+  letter-spacing:-.01em;line-height:1;margin:0;text-wrap:balance}
+.mast-sub{font-size:13.5px;color:var(--ink-soft);margin:6px 0 0}
+.stamp{font-family:var(--mono);font-size:11px;color:var(--ink-faint);text-align:right;
+  line-height:1.7;flex:0 0 auto}
+.stamp b{display:block;font-weight:500;color:var(--ink-soft)}
+
+/* ---------- verdict ---------- */
+.verdict{margin-top:26px;background:var(--surface);border:1px solid var(--rule);
+  border-left:4px solid var(--go);border-radius:3px;padding:20px 22px;box-shadow:var(--shadow)}
+.verdict h2{font-family:var(--display);font-size:20px;font-weight:700;margin:0 0 8px;
+  letter-spacing:-.005em;text-wrap:balance}
+.verdict p{margin:0;color:var(--ink-soft);font-size:14.5px;max-width:64ch}
+.verdict p+p{margin-top:9px}
+.verdict em{font-style:normal;color:var(--ink);font-weight:600}
+.thresh{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:16px;padding-top:14px;
+  border-top:1px solid var(--rule)}
+.thresh div{font-size:12px;color:var(--ink-faint)}
+.thresh span{font-family:var(--mono);font-size:12px;color:var(--ink-soft);font-weight:500}
+
+/* ---------- at a glance ---------- */
+.glance{display:flex;gap:5px;margin-top:14px;overflow-x:auto;padding-bottom:2px}
+.gd{flex:1 1 0;min-width:54px;text-align:center;border:1px solid var(--rule);border-radius:2px;
+  background:var(--surface);padding:7px 3px 6px;text-decoration:none;color:inherit;
+  border-top:3px solid var(--rule-strong)}
+.gd.go{background:var(--go-fill);border-color:var(--go-fill);border-top-color:var(--go)}
+.gd.go b,.gd.go u{color:var(--go)}
+.gd.warn{background:var(--warn-fill);border-color:var(--warn-fill);border-top-color:var(--warn)}
+.gd.warn b,.gd.warn u{color:var(--warn)}
+.gd.bad{background:var(--bad-fill);border-color:var(--bad-fill);border-top-color:var(--bad)}
+.gd.bad b,.gd.bad u{color:var(--bad)}
+.gd.soft{background:var(--surface-2);border-color:var(--rule);border-top-color:var(--rule-strong)}
+.gd.soft b,.gd.soft i,.gd.soft u{color:var(--ink-faint)}
+.gd b{display:block;font-family:var(--display);font-size:11px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase}
+.gd i{display:block;font-family:var(--mono);font-size:9.5px;font-style:normal;opacity:.75}
+.gd u{display:block;text-decoration:none;font-family:var(--mono);font-size:10.5px;
+  color:var(--ink-soft);margin-top:3px}
+.gd.now{outline:2px solid var(--ink);outline-offset:-1px}
+.gd.now i{font-weight:600;opacity:1}
+.glance-key{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px}
+.glance-key span{font-size:11px;color:var(--ink-faint);display:inline-flex;align-items:center;gap:5px}
+.glance-key em{width:9px;height:9px;border-radius:1px;display:inline-block}
+
+/* ---------- harvest: detail collapses under the pills ---------- */
+.hdet{margin-top:14px}
+.hdet summary.hsum{display:flex;align-items:center;gap:10px;cursor:pointer;list-style:none;
+  padding:9px 2px 9px 0;border-top:1px solid var(--rule);-webkit-tap-highlight-color:transparent}
+.hdet summary.hsum::-webkit-details-marker{display:none}
+.hdet summary.hsum::marker{content:""}
+.hsum .lbl{font-family:var(--display);font-size:10.5px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint)}
+.hdet summary.hsum:hover .lbl{color:var(--accent)}
+.hdet summary.hsum:hover .chev{border-color:var(--accent)}
+.hdet summary.hsum:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hsum .chev{flex:0 0 auto;margin:0 2px 4px auto;width:11px;height:11px;
+  border-right:2px solid var(--ink-faint);border-bottom:2px solid var(--ink-faint);
+  transform:rotate(45deg);transition:transform .15s ease}
+.hdet[open] summary.hsum .chev{transform:rotate(-135deg);margin-bottom:0}
+
+/* ---------- reports from around the Sound ---------- */
+.rlead{font-size:13px;color:var(--ink-soft);margin:12px 0 0;line-height:1.55;max-width:78ch}
+.rlead b{color:var(--ink);font-weight:600}
+table.rt{border-collapse:collapse;width:100%;min-width:560px;font-size:12.5px;table-layout:fixed;
+  margin-top:12px}
+table.rt th{font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint);text-align:left;padding:0 14px 8px;
+  border-bottom:1px solid var(--rule-strong);white-space:nowrap}
+table.rt td{padding:9px 14px;border-bottom:1px solid var(--rule);color:var(--ink-soft);
+  vertical-align:middle}
+table.rt th+th,table.rt td+td{border-left:1px solid var(--rule)}
+table.rt th:first-child,table.rt td:first-child{padding-left:0}
+table.rt th:last-child,table.rt td:last-child{padding-right:0}
+table.rt td:first-child{color:var(--ink);font-weight:600}
+table.rt td.n s{text-decoration:none;color:var(--ink-faint);font-size:10.5px}
+table.rt td.n{font-family:var(--mono);font-size:11.5px;font-variant-numeric:tabular-nums;
+  white-space:nowrap}
+table.rt tr:last-child td{border-bottom:0}
+table.rt tr.mine td:first-child::after{content:"your ramp";display:inline-block;margin-left:8px;
+  font-family:var(--display);font-size:9px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent);vertical-align:1px}
+.rbar{display:flex;align-items:center;gap:9px}
+.rbar span{font-family:var(--mono);font-size:11.5px;font-variant-numeric:tabular-nums;
+  color:var(--ink);min-width:30px}
+.rbar i{display:block;height:7px;border-radius:1px;background:var(--tide-line);opacity:.85}
+.rbar em{display:block;flex:1 1 auto;background:var(--surface-2);border-radius:1px;overflow:hidden}
+.rnote{font-size:12.5px;color:var(--ink-soft);line-height:1.55;margin:13px 0 0}
+.rnote b{color:var(--ink);font-weight:600}
+.rnote a{color:var(--accent)}
+.rcaveat{margin-top:11px;padding-top:10px;border-top:1px solid var(--rule);
+  font-size:11.5px;color:var(--ink-faint);line-height:1.55}
+
+.harvest{background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+  padding:16px 18px 15px;box-shadow:var(--shadow)}
+.hpills{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:8px}
+.hpill{min-width:0;border:1px solid var(--rule);border-radius:2px;
+  background:var(--surface-2);padding:9px 11px 8px}
+.hpill.open{background:var(--go-fill);border-color:var(--go-fill)}
+.hpill.check{background:var(--warn-fill);border-color:var(--warn-fill)}
+.hpill.shut{background:var(--surface-2);border-color:var(--rule)}
+.hpill b{display:block;font-family:var(--display);font-size:10px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.hpill u{display:block;text-decoration:none;font-family:var(--display);font-size:17px;
+  font-weight:700;letter-spacing:-.005em;line-height:1.15;margin-top:3px}
+.hpill.open u{color:var(--go)}
+.hpill.check u{color:var(--warn)}
+.hpill.shut u{color:var(--ink-faint)}
+.hpill i{display:block;font-style:normal;font-family:var(--mono);font-size:10.5px;
+  color:var(--ink-soft);margin-top:3px;line-height:1.4}
+
+.htable-wrap{margin-top:16px;overflow-x:auto}
+table.ht{border-collapse:collapse;width:100%;min-width:780px;font-size:12.5px;table-layout:fixed}
+table.ht th{font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint);text-align:left;padding:0 16px 8px;
+  border-bottom:1px solid var(--rule-strong);white-space:nowrap}
+table.ht td{padding:10px 16px;border-bottom:1px solid var(--rule);vertical-align:top;
+  color:var(--ink-soft);line-height:1.45}
+table.ht th+th,table.ht td+td{border-left:1px solid var(--rule)}
+table.ht th:first-child,table.ht td:first-child{padding-left:0}
+table.ht th:last-child,table.ht td:last-child{padding-right:0}
+table.ht td:first-child{color:var(--ink);font-weight:600}
+table.ht td.st{white-space:nowrap}
+table.ht td.mono{font-family:var(--mono);font-size:11.5px;font-variant-numeric:tabular-nums;
+  white-space:nowrap}
+table.ht tr:last-child td{border-bottom:0}
+.st-tag{font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:3px 6px;border-radius:2px}
+.st-tag.open{background:var(--go-fill);color:var(--go)}
+.st-tag.shut{background:var(--surface-2);color:var(--ink-faint);border:1px solid var(--rule)}
+.st-tag.check{background:var(--warn-fill);color:var(--warn)}
+
+.hfoot{margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);
+  font-size:12.5px;color:var(--ink-soft);line-height:1.6}
+.hfoot p{margin:0 0 7px}
+.hfoot p:last-child{margin-bottom:0}
+.hfoot b{color:var(--ink);font-weight:600}
+.hfoot a{color:var(--accent)}
+.hfoot .caution{color:var(--ink);font-weight:600}
+.bc-meta .open-on{color:var(--ink-soft)}
+.bc-meta .open-on b{color:var(--accent);font-weight:600}
+
+/* ---------- section heads ---------- */
+.sec{margin-top:38px}
+.sec-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;margin-bottom:3px}
+.sec-head h3{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;margin:0;color:var(--ink)}
+.sec-head .src{font-family:var(--mono);font-size:11px;color:var(--ink-faint)}
+.sec-conf{height:3px;border-radius:2px;margin-bottom:16px;background:var(--rule)}
+.sec-conf i{display:block;height:100%;border-radius:2px;background:var(--accent)}
+.stack{display:flex;flex-direction:column;gap:14px}
+
+/* ---------- day cards ---------- */
+.bc{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--rule-strong);
+  border-radius:3px;padding:18px 20px 16px;box-shadow:var(--shadow);scroll-margin-top:14px}
+.bc.is-go{border-left-color:var(--go)}
+.bc.is-warn{border-left-color:var(--warn)}
+.bc.is-bad{border-left-color:var(--bad)}
+.bc.is-best{background:var(--surface-2);border-color:var(--rule-strong)}
+
+.bc-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;
+  padding-bottom:11px;border-bottom:1px solid var(--rule)}
+.bc-dow{font-family:var(--display);font-size:26px;font-weight:700;letter-spacing:.01em;
+  text-transform:uppercase;line-height:1}
+.bc-date{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);letter-spacing:.02em}
+.bc-head .spacer{flex:1 1 auto}
+.bc-peak{font-family:var(--mono);font-size:12px;color:var(--ink-soft);
+  font-variant-numeric:tabular-nums;text-align:right}
+.bc-peak b{color:var(--ink);font-weight:600}
+
+.bc-sum{font-size:14px;color:var(--ink);margin:11px 0 0;max-width:70ch}
+.bc-body{display:grid;grid-template-columns:1fr 300px;gap:18px 22px;margin-top:14px;align-items:start}
+
+/* hours strip */
+.hgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:2px;overflow:hidden}
+.hgrid.tilt{grid-template-columns:repeat(3,1fr)}
+.hcell{background:var(--surface);padding:9px 8px 8px;min-width:0}
+.bc.is-best .hcell{background:var(--surface-2)}
+.hcell.empty{color:var(--ink-faint)}
+.hlab{font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:5px}
+.htemp{font-family:var(--display);font-size:21px;font-weight:700;line-height:1;letter-spacing:-.01em}
+.htemp.sm{font-size:15px;letter-spacing:0}
+.hwind{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin-top:5px;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.hwind .arr{display:inline-block;color:var(--tide-line);font-size:12px}
+.hsky{font-size:11px;color:var(--ink-faint);margin-top:2px;line-height:1.3}
+
+/* wind bar */
+.wbar-wrap{margin-top:12px}
+.wbar-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:5px}
+.wbar-top em{font-style:normal;font-family:var(--mono);font-weight:500;font-size:11px;
+  letter-spacing:0;text-transform:none;color:var(--ink-soft);text-align:right}
+.wbar{position:relative;height:16px;background:var(--surface-2);border:1px solid var(--rule);
+  border-radius:2px;overflow:hidden}
+.bc.is-best .wbar{background:var(--surface)}
+.wbar .fill{position:absolute;inset:0 auto 0 0;background:var(--go-fill);border-right:2px solid var(--go)}
+.wbar .fill.over{background:var(--bad-fill);border-right-color:var(--bad)}
+.wbar .lim{position:absolute;top:0;bottom:0;width:0;border-left:2px dashed var(--bad)}
+.wbar-scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9.5px;
+  color:var(--ink-faint);margin-top:3px}
+.nowind{margin-top:12px;padding:9px 11px;border:1px dashed var(--rule-strong);border-radius:2px;
+  font-size:12px;color:var(--ink-faint);line-height:1.45}
+
+/* tide panel */
+.tp{border:1px solid var(--rule);border-radius:2px;background:var(--surface-2);padding:10px 11px 9px}
+.bc.is-best .tp{background:var(--surface)}
+.tp-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.tp-top h4{font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint);margin:0}
+.tp-top span{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft)}
+.tp svg{display:block;width:100%;height:88px;max-width:100%}
+.tp-axis{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9.5px;
+  color:var(--ink-faint);margin-top:1px}
+.tp-turns{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:8px;
+  padding-top:8px;border-top:1px solid var(--rule)}
+.tt{text-align:center;min-width:0}
+.tt-k{font-family:var(--display);font-size:9.5px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint)}
+.tt-t{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink);
+  font-variant-numeric:tabular-nums;line-height:1.3}
+.tt-v{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+
+/* card footer */
+.bc-meta{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:14px;padding-top:11px;
+  border-top:1px solid var(--rule)}
+.bc-meta div{font-size:11.5px;color:var(--ink-faint)}
+.bc-meta span{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);font-weight:500}
+.bc-note{font-size:13px;color:var(--ink-soft);margin-top:11px;line-height:1.5;max-width:78ch}
+.bc-note .flag{color:var(--accent);font-weight:600}
+.bc-win{font-size:13px;margin-top:9px;color:var(--ink-soft)}
+.bc-win b{font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint);margin-right:7px}
+
+/* chips */
+.chip{display:inline-block;font-family:var(--display);font-size:10.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:2px;white-space:nowrap}
+.chip.go{background:var(--go-fill);color:var(--go)}
+.chip.warn{background:var(--warn-fill);color:var(--warn)}
+.chip.bad{background:var(--bad-fill);color:var(--bad)}
+.chip.soft{background:var(--surface-2);color:var(--ink-faint);border:1px dashed var(--rule-strong)}
+.tagline{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint)}
+
+/* ---------- notes ---------- */
+.notes{margin-top:40px;padding-top:18px;border-top:1px solid var(--rule)}
+.notes h3{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px}
+.notes ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:13px;line-height:1.6}
+.notes li{margin-bottom:6px}
+.notes b{color:var(--ink);font-weight:600}
+.srcs{margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--ink-faint);line-height:1.8}
+
+@media (max-width:780px){ .bc-body{grid-template-columns:1fr} }
+@media (max-width:560px){
+  .hgrid{grid-template-columns:repeat(2,1fr)}
+  .hgrid.tilt{grid-template-columns:repeat(1,1fr)}
+  .tp-turns{grid-template-columns:repeat(2,1fr);gap:8px 4px}
+  .stamp{text-align:left}
+  .bc-dow{font-size:22px}
+  .bc{padding:16px 14px 14px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="mast-id">
+      <p class="eyebrow">Possession Sound &middot; Marine Area 8-2</p>
+      <h1>OTIUM Conditions</h1>
+      <p class="mast-sub">14-day outlook &middot; Port of Everett Marina &middot; 47&deg;59&prime;N 122&deg;13&prime;W</p>
+    </div>
+    <div class="stamp">
+      <b>Generated</b>Fri 11 Sep 2026, 09:50 PDT
+      <b>Tides</b>NOAA 9447659 Everett
+      <b>Datum</b>MLLW, feet
+    </div>
+  </header>
+
+  <section class="verdict" id="verdict">
+    <h2>Five straight usable days, Sept 15&ndash;19 &mdash; and Thursday the 17th is as calm and clear as this water gets</h2>
+    <p>Wind reaches your 10-knot line exactly once in the fortnight, on Sunday, and never crosses it. So <em>rain and visibility decide your days, not sea state</em>. One wet system crosses Saturday night into Sunday, then a ridge builds Monday and holds for five days &mdash; Tuesday through Saturday all come in dry, warm and under 9 kt.</p>
+    <p><em>Thursday Sept 17 is the pick</em>: peak wind 4.5 kt, zero cloud all day, 73&deg;F by late afternoon, and the high at 11:13 drops slack water into the middle of the day. Friday the 18th runs a degree warmer at 74&deg;F with the smallest tidal range of the fortnight, but it starts under a dawn marine layer. If you want to go <em>today</em> or <em>tomorrow</em>, both are dry and calm &mdash; just grey.</p>
+    <div class="thresh">
+      <div>Your go/no-go &nbsp;<span>wind &le; 10 kt &middot; seas &le; 1 ft</span></div>
+      <div>Scored for &nbsp;<span>general cruising comfort</span></div>
+    </div>
+    <div class="glance" id="glance"></div>
+    <div class="glance-key">
+      <span><em style="background:var(--go)"></em>Go &mdash; inside your limits</span>
+      <span><em style="background:var(--warn)"></em>Marginal</span>
+      <span><em style="background:var(--bad)"></em>Stay in</span>
+      <span><em style="background:var(--rule-strong)"></em>Tilt only, no forecast</span>
+      <span><em style="background:transparent;box-shadow:inset 0 0 0 2px var(--ink)"></em>Today</span>
+    </div>
+  </section>
+
+  <section class="sec" id="harvest">
+    <div class="sec-head">
+      <h3>What's open &middot; Marine Area 8-2</h3>
+      <span class="src">WDFW &amp; WA DOH &middot; checked 11 Sep 2026</span>
+    </div>
+    <div class="sec-conf"><i style="width:100%"></i></div>
+    <div class="harvest">
+      <div class="hpills" id="hpills"></div>
+
+     <details class="hdet" id="hdet" open>
+      <summary class="hsum">
+        <span class="lbl">Season detail, rules and deadlines</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+
+      <div class="htable-wrap">
+        <table class="ht">
+          <colgroup>
+            <col style="width:18%"><col style="width:10%"><col style="width:20%">
+            <col style="width:15%"><col style="width:37%">
+          </colgroup>
+          <thead><tr>
+            <th>Fishery</th><th>Status</th><th>Season</th><th>Daily limit</th><th>Rules worth knowing</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Salmon, area-wide</td>
+              <td class="st"><span class="st-tag open">Open</span></td>
+              <td class="mono">Aug 1 &ndash; Sept 25</td>
+              <td class="mono">2<br>no min. size</td>
+              <td><b>Release Chinook and chum.</b> Coho are non-selective here &mdash; hatchery or wild &mdash; and pinks count toward the two.</td>
+            </tr>
+            <tr>
+              <td>Tulalip Terminal Area</td>
+              <td class="st"><span class="st-tag open">Open</span></td>
+              <td class="mono">Sept 12&ndash;20,<br>Sat &amp; Sun only</td>
+              <td class="mono">2</td>
+              <td>The Bubble's Chinook fishery. Ran Fri&ndash;Sat May 22 &ndash; Sept 7; this is the last block of the year. <b>Tulalip Bay itself is closed year-round.</b></td>
+            </tr>
+            <tr>
+              <td>Halibut</td>
+              <td class="st"><span class="st-tag open">Open</span></td>
+              <td class="mono">Aug 16 &ndash; Sept 30,<br>daily</td>
+              <td class="mono">1<br>no min. size</td>
+              <td>Annual limit 6. Descending device required on board. Added by the July 15 opportunity announcement, which included 8-1, 8-2, 9, 7 and 10.</td>
+            </tr>
+            <tr>
+              <td>Dungeness &amp; red rock crab</td>
+              <td class="st"><span class="st-tag shut">Closed</span></td>
+              <td class="mono">July 2 &ndash; Sept 7<br>Thu&ndash;Mon<br>(summer, ended)</td>
+              <td class="mono">&mdash;</td>
+              <td><b>The 2026&ndash;27 winter season has not been announced yet.</b> Last year the notice came Sept 24 and reopened 8-1 and 8-2 Oct 1 &ndash; Dec 31, seven days a week. Summer limits were 5 male Dungeness at 6&frac14;&Prime;, 6 red rock at 5&Prime;.</td>
+            </tr>
+            <tr>
+              <td>Clams, oysters, mussels</td>
+              <td class="st"><span class="st-tag check">Check</span></td>
+              <td class="mono">No Snohomish County<br>public beach open</td>
+              <td class="mono">&mdash;</td>
+              <td>A Puget Sound PSP biotoxin event has been running since June; several Admiralty Inlet and Hood Canal beaches only reopened Sept 3&ndash;4. <b>Biotoxins are not destroyed by cooking or freezing.</b> Check the DOH map or the hotline the same day you dig. Biotoxin closures do not affect crab or shrimp.</td>
+            </tr>
+            <tr>
+              <td>Lingcod</td>
+              <td class="st"><span class="st-tag shut">Closed</span></td>
+              <td class="mono">May 1 &ndash; June 15</td>
+              <td class="mono">&mdash;</td>
+              <td>When open: min. 26&Prime;, max. 36&Prime;, one fish. Spearfishing May 21 &ndash; June 15.</td>
+            </tr>
+            <tr>
+              <td>Rockfish</td>
+              <td class="st"><span class="st-tag shut">Closed</span></td>
+              <td class="mono">Closed all year</td>
+              <td class="mono">&mdash;</td>
+              <td>Closed to fishing for, retaining <i>or possessing</i>. Carry a descending device and send incidental catch back down.</td>
+            </tr>
+            <tr>
+              <td>Spot shrimp</td>
+              <td class="st"><span class="st-tag shut">Closed</span></td>
+              <td class="mono">Spring only</td>
+              <td class="mono">&mdash;</td>
+              <td>Puget Sound spot shrimp days are set each May, area by area.</td>
+            </tr>
+            <tr>
+              <td>Surfperch</td>
+              <td class="st"><span class="st-tag open">Open</span></td>
+              <td class="mono">Year-round</td>
+              <td class="mono">10</td>
+              <td>&mdash;</td>
+            </tr>
+            <tr>
+              <td>Cabezon</td>
+              <td class="st"><span class="st-tag open">Open</span></td>
+              <td class="mono">May 1 &ndash; Nov 30</td>
+              <td class="mono">1</td>
+              <td>Minimum 18&Prime;.</td>
+            </tr>
+            <tr>
+              <td>Pacific cod, pollock,<br>hake, wolf-eel</td>
+              <td class="st"><span class="st-tag shut">Closed</span></td>
+              <td class="mono">&mdash;</td>
+              <td class="mono">&mdash;</td>
+              <td>Closed to retention.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="hfoot">
+        <p><b>Against this forecast</b> &mdash; the Bubble has four days left: Sat the 12th, Sun the 13th, Sat the 19th and Sun the 20th. The 13th is the one stay-in day of the fortnight and the 20th is grey and damp, so <b>Saturday the 19th is the pick of the four</b> &mdash; 72&deg;F, under 2 kt through the morning. Tomorrow works too if you don't mind overcast. Area-wide salmon closes the 25th and halibut the 30th, so the whole dry ridge sits inside both seasons.</p>
+        <p><b>Your next deadline</b> &mdash; the summer Puget Sound Dungeness crab catch record card is due to WDFW by <b>Oct 1, 2026</b>, and it has to be filed whether or not you caught anything, or even went out. Report it at <a href="https://fishhunt.dfw.wa.gov/" target="_blank" rel="noopener">fishhunt.dfw.wa.gov</a> or mail the card to the address printed on it; miss the deadline and there is a <b>$10 penalty on your next crab endorsement</b>. Winter cards are due Feb 1. Full requirement: <a href="https://wdfw.wa.gov/licenses/fishing/catch-record-card/dungeness" target="_blank" rel="noopener">WDFW Dungeness catch record card</a>.</p>
+        <p><b>Emergency rules</b> &mdash; no active emergency rule is specific to 8-2 as of this check. The nearest recent ones are the Marine Area 9 and 12 shellfish beach update (Sept 3), the Puget Sound crabbing update that opened Area 7 North (Aug 13), and the Puget Sound shrimp update (July 27).</p>
+        <p><span class="caution">This is a convenience summary, not the regulations.</span> Seasons here move on short notice. Confirm on WDFW's <a href="https://wdfw.wa.gov/fishing/regulations/emergency-rules" target="_blank" rel="noopener">emergency rules page</a> or the Fish Washington app before you leave the dock, and check shellfish on the <a href="https://doh.wa.gov/shellfishsafety" target="_blank" rel="noopener">DOH Shellfish Safety Map</a> or the biotoxin hotline at <b>1-800-562-5632</b>. Area page: <a href="https://wdfw.wa.gov/fishing/locations/marine-areas/ports-susan-gardner" target="_blank" rel="noopener">Marine Area 8-2</a>.</p>
+      </div>
+     </details>
+
+     <details class="hdet" id="rdet" open>
+      <summary class="hsum">
+        <span class="lbl">Reports from around the Sound</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+
+      <p class="rlead">This year's preseason Puget Sound coho forecast is <b>897,190 fish against 727,058 in 2025</b> &mdash; managers called it the potential for the best coho catch in more than twenty years, and the creel counts are bearing that out. Below is WDFW's most recent sampling day, <b>Wednesday Sept 10</b>, ramp by ramp.</p>
+
+      <div class="htable-wrap">
+        <table class="rt">
+          <colgroup><col style="width:30%"><col style="width:11%"><col style="width:14%"><col style="width:14%"><col style="width:31%"></colgroup>
+          <thead><tr>
+            <th>Ramp</th><th>Area</th><th>Anglers</th><th>Coho kept</th><th>Coho per angler</th>
+          </tr></thead>
+          <tbody id="rbody"></tbody>
+        </table>
+      </div>
+
+      <p class="rnote"><b>Shellfish</b> &mdash; no new report for Snohomish County beaches. The Puget Sound PSP event that began in June is still the controlling story; WDFW's Sept 3&ndash;4 update reopened several Admiralty Inlet and Hood Canal beaches, and beach status changes week to week, so the <a href="https://doh.wa.gov/shellfishsafety" target="_blank" rel="noopener">DOH Shellfish Safety Map</a> or the hotline is the only live source. Crab and shrimp are unaffected by biotoxin closures.</p>
+
+      <p class="rcaveat">Creel figures are WDFW's raw dockside interviews and change after quality-assurance review. Sept 10 is the only recent sampling day that covered Area 8-2 &mdash; the Sept 9 and Sept 6 samples covered other areas &mdash; so treat this as one good day, not a trend. Source: <a href="https://wdfw.wa.gov/fishing/reports/creel/puget" target="_blank" rel="noopener">WDFW Puget Sound creel reports</a>.</p>
+     </details>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <h3>Days 1&ndash;5 &middot; Marine forecast</h3>
+      <span class="src">NWS Seattle zone PZZ135, through Mon the 14th</span>
+    </div>
+    <div class="sec-conf"><i style="width:86%"></i></div>
+    <div class="stack" id="tier1"></div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <h3>Days 6&ndash;10 &middot; Model guidance</h3>
+      <span class="src">MET Norway, 10 km deterministic</span>
+    </div>
+    <div class="sec-conf"><i style="width:56%"></i></div>
+    <div class="stack" id="tier2"></div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <h3>Days 11&ndash;14 &middot; Climate outlook</h3>
+      <span class="src">NOAA CPC 8&ndash;14 day probabilities</span>
+    </div>
+    <div class="sec-conf"><i style="width:22%"></i></div>
+    <div class="stack" id="tier3"></div>
+  </section>
+
+  <section class="notes">
+    <h3>Reading this page</h3>
+    <ul>
+      <li><b>Every day gets a full tile, in date order, today first.</b> Each shows conditions at four points through the day, the day's peak wind against your 10-kt limit, the full tide curve with all four turns, and sun, daylight, moon and rain totals.</li>
+      <li><b>The harvest table is a convenience summary, not the regulations</b>, pulled from WDFW's area and emergency-rule pages and the DOH shellfish map at each refresh. Each day tile also carries an "Open" line showing what is legal that calendar day. Seasons move on short notice &mdash; confirm before you leave the dock.</li>
+      <li><b>The four columns are the model's own timesteps</b> &mdash; 5 AM, 11 AM, 5 PM and 11 PM local, which is what 12Z, 18Z, 00Z and 06Z work out to in PDT. Today starts at 9 AM because that is where the current run begins.</li>
+      <li><b>Confidence drops as you go down the page.</b> The bar under each heading shows roughly how much to trust that block. The last four days carry no wind or tide-window guidance at all &mdash; only a seasonal tilt &mdash; so their tiles show the tide, which is exact, and nothing that pretends to be a forecast.</li>
+      <li><b>Tides are exact for all 14 days</b> &mdash; they're astronomical, not forecast. The shaded band on each chart is daylight, sunrise to sunset.</li>
+      <li><b>The window is model-only.</b> The NWS zone forecast runs out after Monday Sept 14, so Tuesday the 15th sits in the days 1&ndash;5 block on model guidance alone, and Sept 15&ndash;19 rests on MET Norway at 4 to 8 days out. Treat the shape of the week as solid and the exact numbers as provisional &mdash; re-check midweek.</li>
+      <li><b>Sea state is estimated from wind</b> over Possession Sound's short fetch. The NWS zone forecast reports "2 ft or less" as its floor category, which is too coarse to score against a 1-foot threshold, so light-wind days are refined from wind speed rather than taken at that wording.</li>
+      <li><b>The zone forecast on hand is one issuance old</b> &mdash; 138 AM PDT Thu Sep 10, the latest the NWS file server was serving at run time. Its day names are mapped from its own issuance date, not today's.</li>
+      <li><b>Sunday the 13th is a split.</b> The model puts down 0.26 in of rain, heaviest between 1 and 4 AM; the zone forecast mentions no rain at all for Sunday and only gives S wind 5 to 10 kt. It is scored on the wet side. This morning's run also moved nearly all of the weekend's rain off Saturday &mdash; yesterday's page had Saturday at 0.55 in, today's has 0.01.</li>
+      <li><b>Model guidance ends Sunday Sept 20 at 5 PM</b>, so that tile has no late-evening column and Sept 21&ndash;24 carry only the CPC 8&ndash;14 day outlook (valid Sept 18&ndash;24): above-normal temperature, near-normal precipitation for Washington.</li>
+      <li><b>New moon was yesterday</b>, so today's tides are the biggest of the fortnight at 11.3 ft. The range shrinks to a 7.9 ft neap by Friday the 18th &mdash; conveniently, the calmest days also have the least water moving.</li>
+    </ul>
+    <div class="srcs">
+      Tides &middot; NOAA CO-OPS station 9447659 (Everett) &nbsp;|&nbsp; Marine &middot; NWS PZZ135 Puget Sound &amp; Hood Canal, 138 AM PDT Thu Sep 10<br>
+      Model &middot; MET Norway Locationforecast 2.0, run 11 Sep 13:22Z &nbsp;|&nbsp; Outlook &middot; NOAA CPC 6&ndash;10 / 8&ndash;14 day<br>
+      Sun times and moon phase computed for 47.99&deg;N, &minus;122.22&deg;W &middot; all times PDT
+    </div>
+  </section>
+</div>
+
+<script>
+/* ---------- all tide turns, NOAA 9447659 Everett, MLLW ft ---------- */
+const YEAR=2026;
+const TIDES=[
+["09-10","04:26",10.03,"H"],["09-10","10:55",-0.17,"L"],["09-10","17:40",11.32,"H"],["09-10","23:34",3.00,"L"],
+["09-11","05:24",10.25,"H"],["09-11","11:38",0.73,"L"],["09-11","18:07",11.28,"H"],
+["09-12","00:13",1.92,"L"],["09-12","06:18",10.31,"H"],["09-12","12:18",1.84,"L"],["09-12","18:33",11.12,"H"],
+["09-13","00:52",1.13,"L"],["09-13","07:11",10.24,"H"],["09-13","12:58",3.07,"L"],["09-13","18:58",10.85,"H"],
+["09-14","01:30",0.66,"L"],["09-14","08:04",10.04,"H"],["09-14","13:38",4.29,"L"],["09-14","19:24",10.50,"H"],
+["09-15","02:10",0.49,"L"],["09-15","08:58",9.74,"H"],["09-15","14:19",5.43,"L"],["09-15","19:50",10.08,"H"],
+["09-16","02:51",0.58,"L"],["09-16","09:58",9.39,"H"],["09-16","15:02",6.42,"L"],["09-16","20:17",9.64,"H"],
+["09-17","03:36",0.83,"L"],["09-17","11:13",9.09,"H"],["09-17","15:54",7.20,"L"],["09-17","20:46",9.19,"H"],
+["09-18","04:29",1.12,"L"],["09-18","12:47",9.04,"H"],["09-18","17:02",7.71,"L"],["09-18","21:23",8.73,"H"],
+["09-19","05:30",1.33,"L"],["09-19","14:06",9.26,"H"],["09-19","18:33",7.78,"L"],["09-19","22:23",8.28,"H"],
+["09-20","06:35",1.35,"L"],["09-20","14:59",9.56,"H"],["09-20","20:03",7.37,"L"],["09-20","23:58",8.00,"H"],
+["09-21","07:36",1.21,"L"],["09-21","15:36",9.86,"H"],["09-21","20:59",6.64,"L"],
+["09-22","01:25",8.07,"H"],["09-22","08:30",1.05,"L"],["09-22","16:03",10.14,"H"],["09-22","21:37",5.73,"L"],
+["09-23","02:36",8.41,"H"],["09-23","09:17",1.00,"L"],["09-23","16:26",10.38,"H"],["09-23","22:10",4.67,"L"],
+["09-24","03:36",8.90,"H"],["09-24","10:00",1.14,"L"],["09-24","16:46",10.60,"H"],["09-24","22:43",3.51,"L"],
+["09-25","04:29",9.46,"H"]
+];
+const DATES=["09-11","09-12","09-13","09-14","09-15","09-16","09-17","09-18","09-19","09-20","09-21","09-22","09-23","09-24"];
+const SUN={
+"09-11":["06:40","19:31"],"09-12":["06:41","19:29"],"09-13":["06:43","19:27"],"09-14":["06:44","19:25"],
+"09-15":["06:45","19:23"],"09-16":["06:47","19:21"],"09-17":["06:48","19:19"],"09-18":["06:50","19:17"],
+"09-19":["06:51","19:15"],"09-20":["06:52","19:13"],"09-21":["06:54","19:11"],"09-22":["06:55","19:09"],
+"09-23":["06:56","19:06"],"09-24":["06:58","19:04"]};
+
+const mins=t=>{const[h,m]=t.split(":").map(Number);return h*60+m};
+function ord(md){
+  const[m,dd]=md.split("-").map(Number);
+  const bm=Number(DATES[0].slice(0,2));
+  let y=YEAR;
+  if(m<bm-6)y+=1; else if(m>bm+6)y-=1;   // handles a year rollover inside the fortnight
+  return Date.UTC(y,m-1,dd)/86400000;
+}
+const BASE=ord(DATES[0]);
+const abs=(d,t)=>(ord(d)-BASE)*1440+mins(t);
+const TURNS=TIDES.map(x=>({t:abs(x[0],x[1]),v:x[2],k:x[3],d:x[0],hm:x[1]}));
+function heightAt(m){
+  let a=null,b=null;
+  for(let i=0;i<TURNS.length;i++){
+    if(TURNS[i].t<=m)a=TURNS[i];
+    if(TURNS[i].t>=m&&b===null)b=TURNS[i];
+  }
+  if(!a)return b?b.v:0;
+  if(!b)return a.v;
+  if(b.t===a.t)return a.v;
+  const p=(m-a.t)/(b.t-a.t);
+  return (a.v+b.v)/2-((b.v-a.v)/2)*Math.cos(Math.PI*p);
+}
+const dayTurns=d=>TURNS.filter(x=>x.d===d);
+
+/* ---------- the fortnight, in date order ---------- */
+const DAYS=[
+{dow:"Fri",date:"Sep 11",d:"09-11",rating:"go",label:"Good",today:true,tag:"NWS + model",
+ sum:"Dry and calm under solid overcast &mdash; a perfectly usable day that simply has no sun in it. Wind sits near 6 kt out of the south all day and the sky starts breaking up late afternoon.",
+ hours:[["9 AM &middot; now",57,6.2,"SSE","Overcast"],["11 AM",60,5.1,"SSE","Overcast"],["5 PM",65,4.5,"W","Breaking up"],["11 PM",57,4.3,"NW","Cloudy"]],
+ peakKt:6.6,peakAt:"2 PM",peakDir:"SSW",sea:"Light chop, ~1 ft",
+ rain:"0.00 in",rainNote:"neither source puts rain on today",
+ daylight:"12h 51m",moon:"New moon, 1%",range:"10.6 ft",
+ win:"Now through evening. Slack at the 11:38 low, then a long flood all afternoon.",
+ note:"Biggest tide of the fortnight &mdash; 11.3 ft at 18:07, the day after new moon, and a 10.6 ft range. That is a strong flood running from late morning to evening, so expect noticeable current in the channel. The zone forecast has S wind around 5 kt and waves 2 ft or less; the model agrees."},
+
+{dow:"Sat",date:"Sep 12",d:"09-12",rating:"go",label:"Good",tag:"NWS + model",
+ sum:"Grey but essentially dry, and the middle of the day breaks up to partly cloudy. The weekend's rain has moved &mdash; this morning's run cut Saturday from 0.55 in to a trace and pushed it into Sunday.",
+ hours:[["5 AM",54,2.7,"WNW","Overcast"],["11 AM",63,5.6,"WNW","Partly cloudy"],["5 PM",66,6.6,"WSW","Clouding over"],["11 PM",59,5.6,"SSE","Overcast, rain near"]],
+ peakKt:8.0,peakAt:"2 PM",peakDir:"WNW",sea:"Light chop, ~1 ft",
+ rain:"0.01 in",rainNote:"a sprinkle around midday",
+ daylight:"12h 48m",moon:"Waxing crescent, 1%",range:"9.3 ft",
+ win:"Late morning to late afternoon, before the southerly backs in and the rain arrives after dark.",
+ note:"<span class='flag'>Sources split</span> &mdash; the zone forecast still says \"a chance of rain\" all day; the model now has 0.01 in. Worth a look out the window rather than a cancellation. High at 18:33 is 11.1 ft, the second biggest of the run."},
+
+{dow:"Sun",date:"Sep 13",d:"09-13",rating:"bad",label:"Stay in",tag:"NWS + model",
+ sum:"The one genuinely bad day. Steady rain from about 1 AM to 9 AM, showers behind it, and the only hours of the fortnight that touch your 10-kt line.",
+ hours:[["5 AM",56,6.0,"SSE","Rain"],["11 AM",57,7.2,"S","Overcast"],["5 PM",64,9.9,"S","Showers"],["11 PM",58,9.9,"SSE","Showers easing"]],
+ peakKt:9.9,peakAt:"5 PM",peakDir:"S",sea:"Chop, 1&ndash;2 ft",
+ rain:"0.26 in",rainNote:"heaviest 1&ndash;4 AM",
+ daylight:"12h 44m",moon:"Waxing crescent, 4%",range:"9.7 ft",
+ win:"None. Wind is at your limit and seas run over it.",
+ note:"Seas are the disqualifier, not the wind &mdash; a sustained 9.9 kt southerly down the length of Possession Sound puts up 1 to 2 ft, above your 1-foot line. <span class='flag'>Sources split</span> on rain: the zone forecast mentions none at all for Sunday and gives only S wind 5 to 10 kt. Scored on the wet side."},
+
+{dow:"Mon",date:"Sep 14",d:"09-14",rating:"go",label:"Good",tag:"NWS + model",
+ sum:"The system pulls away through the day. Wet morning, drying afternoon, and the wind drops to almost nothing by evening as the ridge starts to build.",
+ hours:[["5 AM",57,5.6,"SSE","Light rain"],["11 AM",61,5.2,"S","Showers"],["5 PM",65,1.7,"WSW","Cloudy, drying"],["11 PM",56,3.9,"NNW","Cloudy"]],
+ peakKt:5.6,peakAt:"5 AM",peakDir:"SSE",sea:"Ripples, under 6 in",
+ rain:"0.06 in",rainNote:"showers through midday",
+ daylight:"12h 41m",moon:"Waxing crescent, 8%",range:"9.8 ft",
+ win:"Afternoon, from about 2 PM once the showers clear. Only 1.7 kt at 5 PM.",
+ note:"Last day the NWS zone forecast reaches: S wind around 5 kt backing to N around 5 kt in the afternoon, waves 2 ft or less &mdash; the model agrees on the wind and adds the morning showers. Big afternoon ebb from the 08:04 high down to 4.3 ft at 13:38."},
+
+{dow:"Tue",date:"Sep 15",d:"09-15",rating:"go",label:"Excellent",tag:"Model only",
+ sum:"First dry day of the ridge. A damp start clears through the morning and the sky opens right up by late afternoon &mdash; the only catch is a westerly that builds to 8 kt after 5 PM.",
+ hours:[["5 AM",53,2.5,"N","Mostly cloudy"],["11 AM",61,4.9,"NW","Breaking up"],["5 PM",66,8.2,"WNW","Nearly clear"],["11 PM",57,3.3,"NW","Clear"]],
+ peakKt:8.2,peakAt:"5 PM",peakDir:"WNW",sea:"Light chop, ~1 ft",
+ rain:"0.01 in",rainNote:"a trace before dawn",
+ daylight:"12h 38m",moon:"Waxing crescent, 14%",range:"9.6 ft",
+ win:"Late morning through mid-afternoon &mdash; back in before the evening westerly fills in.",
+ note:"Past the zone forecast's reach, so this tile is model-only. Everything before 4 PM is under 5 kt. The morning high at 08:58 and the shallow afternoon ebb (down to just 5.4 ft) mean little water moving all day."},
+
+{dow:"Wed",date:"Sep 16",d:"09-16",rating:"go",label:"Excellent",tag:"Model only",
+ sum:"Cloudless from dawn. Under 4 kt until late afternoon, then a soft northwesterly to 7 kt &mdash; the kind of day where the Sound looks like sheet metal until the sea breeze arrives.",
+ hours:[["5 AM",54,3.3,"NNW","Clear"],["11 AM",65,3.7,"NW","Clear"],["5 PM",71,6.8,"NW","Clear"],["11 PM",59,2.3,"NNW","Clear"]],
+ peakKt:6.8,peakAt:"5 PM",peakDir:"NW",sea:"Light chop, ~1 ft",
+ rain:"0.00 in",rainNote:"nothing all day",
+ daylight:"12h 34m",moon:"Waxing crescent, 23%",range:"9.1 ft",
+ win:"Any time. Lightest air is before noon; the 71&deg;F peak comes late.",
+ note:"Cloud cover reads 0&ndash;1% right through the daylight hours. Tide turns are conveniently placed &mdash; high at 09:58, low at 15:02, so an ebb runs through the early afternoon if you want the current with you outbound."},
+
+{dow:"Thu",date:"Sep 17",d:"09-17",rating:"go",label:"Best day",best:true,tag:"Model only",
+ sum:"The standout. Wind never exceeds 4.5 kt, cloud cover stays at zero, and the high at 11:13 puts slack water squarely in the middle of the day.",
+ hours:[["5 AM",56,1.4,"NW","Clear"],["11 AM",67,1.9,"W","Clear"],["5 PM",73,4.5,"WNW","Clear"],["11 PM",60,0.2,"ENE","Calm, clear"]],
+ peakKt:4.5,peakAt:"5 PM",peakDir:"WNW",sea:"Ripples, under 6 in",
+ rain:"0.00 in",rainNote:"nothing all day",
+ daylight:"12h 31m",moon:"Waxing crescent, 32%",range:"8.4 ft",
+ win:"Any time at all. High slack at 11:13 makes a midday departure and a late-afternoon return easy.",
+ note:"Glassy in the morning &mdash; 1.4 kt at dawn and under 2 kt at 11 AM is about as flat as Possession Sound gets. The afternoon ebb only drops 1.9 ft, so you'll barely feel the current. If you take one day out of this run, take this one."},
+
+{dow:"Fri",date:"Sep 18",d:"09-18",rating:"go",label:"Excellent",tag:"Model only",
+ sum:"Warmest day of the fortnight at 74&deg;F and the smallest tidal range in the run. The one caveat is dawn: 99% humidity with a marine layer overhead, so expect fog on the water until it burns off.",
+ hours:[["5 AM",54,0.2,"NE","Fog / low cloud"],["11 AM",69,2.5,"WNW","Mostly clear"],["5 PM",74,5.2,"WNW","Clear"],["11 PM",61,1.4,"NNW","Clear"]],
+ peakKt:5.2,peakAt:"5 PM",peakDir:"WNW",sea:"Ripples, under 6 in",
+ rain:"0.00 in",rainNote:"nothing all day",
+ daylight:"12h 27m",moon:"Waxing crescent, 44%",range:"7.9 ft",
+ win:"From about 9 AM, once the marine layer lifts. Dead calm underneath it, but visibility is the issue, not sea state.",
+ note:"Neap tides &mdash; only 7.9 ft of movement all day, the least of the fortnight, and the afternoon ebb from the 12:47 high drops just 1.3 ft. Flat water, minimal current, warmest air. <span class='flag'>Check visibility before casting off</span> rather than the wind."},
+
+{dow:"Sat",date:"Sep 19",d:"09-19",rating:"go",label:"Excellent",tag:"Model only",
+ sum:"Last day of the ridge and the best weekend day in the outlook: 72&deg;F, under 2 kt through the morning, with high cloud drifting in late afternoon as the pattern starts to break down.",
+ hours:[["5 AM",57,0.4,"E","Clear"],["11 AM",67,1.7,"SW","Mostly clear"],["5 PM",72,5.2,"NW","Partly cloudy"],["11 PM",59,4.7,"SSE","Clouding over"]],
+ peakKt:5.2,peakAt:"5 PM",peakDir:"NW",sea:"Ripples, under 6 in",
+ rain:"0.00 in",rainNote:"nothing all day",
+ daylight:"12h 24m",moon:"First quarter, 53%",range:"7.9 ft",
+ win:"Morning through late afternoon. A southerly starts filling in after dark as the next system approaches.",
+ note:"A long flood runs from the 05:30 low all the way to the 14:06 high &mdash; nine hours of rising water, so an outbound morning run works with the current. Cloud builds from 16% at midday to 40% by evening; Sunday is grey and damp behind it."},
+
+{dow:"Sun",date:"Sep 20",d:"09-20",rating:"warn",label:"Marginal",tag:"Model, partial",
+ sum:"The ridge breaks down. Full overcast, drizzle on and off, and eleven degrees cooler than Saturday. Calm enough to go &mdash; just no reason to.",
+ hours:[["5 AM",58,4.5,"SSE","Overcast, drizzle"],["11 AM",61,5.1,"SSW","Overcast"],["5 PM",63,2.3,"N","Breaking up"],["11 PM",null,null,null,"No guidance"]],
+ peakKt:5.1,peakAt:"11 AM",peakDir:"SSW",sea:"Ripples, under 6 in",
+ rain:"0.02 in",rainNote:"light and intermittent",
+ daylight:"12h 21m",moon:"Waxing gibbous, 62%",range:"8.2 ft",
+ win:"Late afternoon if you must &mdash; it looks like the only break in the cloud.",
+ note:"Model guidance ends at 5 PM this day, so the evening column is blank rather than guessed. A single long flood from the 06:35 low to the 14:59 high, then a slow ebb."},
+
+{dow:"Mon",date:"Sep 21",d:"09-21",rating:"soft",label:"Tilt fair",tag:"CPC 8&ndash;14 day",tilt:true,
+ sum:"Past the model's reach. Only the seasonal tilt from here &mdash; the tide below is still exact.",
+ rain:"Near normal",daylight:"12h 17m",moon:"Waxing gibbous, 74%",range:"8.7 ft",
+ note:"CPC 8&ndash;14 day, valid Sept 18&ndash;24, favors above-normal temperature and near-normal precipitation for Washington. Long afternoon flood peaks at 15:36; the range is building again toward the full moon."},
+
+{dow:"Tue",date:"Sep 22",d:"09-22",rating:"soft",label:"Tilt fair",tag:"CPC 8&ndash;14 day",tilt:true,
+ sum:"Autumnal equinox. Warm tilt still favored, but this is a lean, not a forecast.",
+ rain:"Near normal",daylight:"12h 14m",moon:"Waxing gibbous, 82%",range:"9.1 ft",
+ note:"Day and night are equal length from here on; you lose roughly three minutes of daylight a day through the rest of the month. Four tide turns again, with a 10.1 ft high at 16:03."},
+
+{dow:"Wed",date:"Sep 23",d:"09-23",rating:"soft",label:"Tilt fair",tag:"CPC 8&ndash;14 day",tilt:true,
+ sum:"Still inside the warm, near-normal-precipitation tilt. Nothing here is a wind forecast.",
+ rain:"Near normal",daylight:"12h 10m",moon:"Waxing gibbous, 89%",range:"9.4 ft",
+ note:"Tidal range keeps growing as the moon fills &mdash; 9.4 ft today against 7.9 ft last Friday. The 22:10 low at 4.7 ft is the shallowest evening water of the week."},
+
+{dow:"Thu",date:"Sep 24",d:"09-24",rating:"soft",label:"Tilt fair",tag:"CPC 8&ndash;14 day",tilt:true,
+ sum:"Last day inside the CPC 8&ndash;14 day window. Re-check this one in a week.",
+ rain:"Near normal",daylight:"12h 06m",moon:"Waxing gibbous, 95%",range:"9.5 ft",
+ note:"Full moon is on the 26th, so spring tides are returning: a 10.6 ft high at 16:46 and a 3.5 ft low at 22:43. Expect real current in the channel by the end of the month."}
+];
+
+/* ---------- harvest, Marine Area 8-2 ---------- */
+const TODAY=DATES[0];
+const HARVEST=[
+ {name:"Salmon",state:"open",head:"Open",from:"08-01",to:"09-25",note:"2 fish &middot; release Chinook + chum"},
+ {name:"Tulalip Bubble",state:"open",head:"Sat &amp; Sun",days:["09-12","09-13","09-19","09-20"],to:"09-20",note:"Chinook &middot; Sept 12&ndash;20 only"},
+ {name:"Halibut",state:"open",head:"Open daily",from:"08-16",to:"09-30",note:"1 fish &middot; annual limit 6"},
+ {name:"Crab",state:"shut",head:"Closed",note:"Summer ended Sept 7 &middot; winter TBA<br>catch card due Oct 1"},
+ {name:"Clams &amp; oysters",state:"check",head:"Check DOH",note:"PSP biotoxin event ongoing"},
+ {name:"Lingcod &amp; rockfish",state:"shut",head:"Closed",note:"Lingcod May&ndash;June &middot; rockfish all year"}
+];
+const daysUntil=md=>Math.round(ord(md)-ord(TODAY));
+const pillHost=document.getElementById("hpills");
+for(const h of HARVEST){
+  const el=document.createElement("div");
+  el.className="hpill "+h.state;
+  let tail=h.note;
+  if(h.state==="open"&&h.to){
+    const n=daysUntil(h.to);
+    if(n>=0)tail+=`<br>closes in ${n} day${n===1?"":"s"}`;
+  }
+  el.innerHTML=`<b>${h.name}</b><u>${h.head}</u><i>${tail}</i>`;
+  pillHost.appendChild(el);
+}
+/* ---------- creel reports, most recent WDFW sampling day ---------- */
+const REPORTS=[
+ // ramp, marine area, anglers, coho kept, chinook kept, mine?
+ ["Everett Ramp","8-2",292,433,1,true],
+ ["Mukilteo Lighthouse","8-2",14,25,1],
+ ["Camano Island St. Pk.","8-2",16,23,0],
+ ["Cornet Bay","8-2",23,23,0],
+ ["Everett Ramp","9",85,121,1],
+ ["Fort Casey","9",30,16,0],
+ ["Shilshole","10",242,327,1],
+ ["Armeni","10",84,97,1]
+];
+const RMAX=2.0;  // bar scale, coho per angler
+const rbody=document.getElementById("rbody");
+for(const [ramp,area,anglers,coho,chin,mine] of REPORTS){
+  const per=anglers?coho/anglers:0;
+  const tr=document.createElement("tr");
+  if(mine)tr.className="mine";
+  tr.innerHTML=`
+    <td>${ramp}</td>
+    <td class="n">${area}</td>
+    <td class="n">${anglers}</td>
+    <td class="n">${coho}${chin?` <s title="Chinook">+${chin} ch</s>`:""}</td>
+    <td><div class="rbar"><span>${per.toFixed(2)}</span><em><i style="width:${Math.min(100,per/RMAX*100).toFixed(0)}%"></i></em></div></td>`;
+  rbody.appendChild(tr);
+}
+
+// remember the collapsed state of each panel for this viewer; storage can be unavailable, so guard it
+for(const [id,key] of [["hdet","otium.harvest.open"],["rdet","otium.reports.open"]]){
+  const el=document.getElementById(id);
+  if(!el)continue;
+  try{ const v=localStorage.getItem(key); if(v!==null)el.open=(v==="1"); }catch(e){}
+  el.addEventListener("toggle",()=>{ try{ localStorage.setItem(key,el.open?"1":"0"); }catch(e){} });
+}
+
+// which fisheries are legal on a given calendar day
+function openOn(d){
+  const out=[];
+  for(const h of HARVEST){
+    if(h.state!=="open")continue;
+    if(h.days){ if(h.days.includes(d))out.push("<b>"+h.name+"</b>"); continue; }
+    if(ord(d)>=ord(h.from)&&ord(d)<=ord(h.to))out.push(h.name);
+  }
+  return out;
+}
+
+/* ---------- tide chart ---------- */
+function bigTide(d){
+  const W=300,H=88,PADL=22,PADR=6,PADT=9,PADB=14,LO=0,HI=12;
+  const base=(ord(d)-BASE)*1440;
+  const x=m=>PADL+(m/1440)*(W-PADL-PADR);
+  const y=v=>H-PADB-((v-LO)/(HI-LO))*(H-PADT-PADB);
+  let pts=[];
+  for(let m=0;m<=1440;m+=10)pts.push([x(m),y(heightAt(base+m))]);
+  const line=pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
+  const area=line+` L ${x(1440).toFixed(1)} ${H-PADB} L ${x(0).toFixed(1)} ${H-PADB} Z`;
+  const [sr,ss]=SUN[d];
+  const band=`<rect x="${x(mins(sr)).toFixed(1)}" y="${PADT}" width="${(x(mins(ss))-x(mins(sr))).toFixed(1)}" height="${H-PADT-PADB}" fill="var(--day-band)"/>`;
+  let grid="";
+  for(const v of [0,4,8,12]){
+    grid+=`<line x1="${PADL}" y1="${y(v).toFixed(1)}" x2="${W-PADR}" y2="${y(v).toFixed(1)}" stroke="var(--rule)" stroke-width=".6"/>`;
+    grid+=`<text x="${PADL-4}" y="${(y(v)+3).toFixed(1)}" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="var(--ink-faint)">${v}</text>`;
+  }
+  let marks="";
+  for(const t of dayTurns(d)){
+    marks+=`<circle cx="${x(mins(t.hm)).toFixed(1)}" cy="${y(t.v).toFixed(1)}" r="2.6" fill="var(--surface)" stroke="var(--tide-line)" stroke-width="1.5"/>`;
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Tide curve">
+    ${band}${grid}
+    <path d="${area}" fill="var(--tide-fill)" opacity=".75"/>
+    <path d="${line}" fill="none" stroke="var(--tide-line)" stroke-width="1.8" stroke-linejoin="round"/>
+    ${marks}</svg>`;
+}
+
+/* ---------- cards ---------- */
+const ARROW={N:"↓",NNE:"↓",NE:"↙",ENE:"↙",E:"←",ESE:"←",SE:"↖",SSE:"↑",S:"↑",SSW:"↑",SW:"↗",WSW:"→",W:"→",WNW:"→",NW:"↘",NNW:"↓"};
+
+function makeCard(c){
+  const el=document.createElement("article");
+  el.className="bc is-"+c.rating+(c.best?" is-best":"");
+  el.id="d"+c.d.replace("-","");
+
+  const turns=dayTurns(c.d).map(t=>`
+    <div class="tt">
+      <div class="tt-k">${t.k==="H"?"High":"Low"}</div>
+      <div class="tt-t">${t.hm}</div>
+      <div class="tt-v">${t.v.toFixed(1)} ft</div>
+    </div>`).join("");
+
+  let left;
+  if(c.tilt){
+    left=`<div class="hgrid tilt">
+      <div class="hcell"><div class="hlab">Temperature</div><div class="htemp sm">Above normal</div><div class="hsky">CPC probability tilt</div></div>
+      <div class="hcell"><div class="hlab">Precipitation</div><div class="htemp sm">${c.rain}</div><div class="hsky">CPC probability tilt</div></div>
+      <div class="hcell empty"><div class="hlab">Wind &amp; sea</div><div class="htemp sm">No forecast</div><div class="hsky">Beyond model range</div></div>
+    </div>
+    <div class="nowind">No wind or sea-state guidance exists at this range &mdash; nothing here is a forecast you can plan a departure on. The tide, sun and moon beside it are exact.</div>`;
+  }else{
+    const hours=c.hours.map(h=>{
+      if(h[1]===null)return `<div class="hcell empty"><div class="hlab">${h[0]}</div><div class="htemp sm">&mdash;</div><div class="hsky">${h[4]}</div></div>`;
+      return `<div class="hcell">
+        <div class="hlab">${h[0]}</div>
+        <div class="htemp">${h[1]}&deg;</div>
+        <div class="hwind"><span class="arr">${ARROW[h[3]]||"·"}</span> ${h[3]} ${h[2].toFixed(1)} kt</div>
+        <div class="hsky">${h[4]}</div>
+      </div>`;}).join("");
+    const pct=Math.min(100,(c.peakKt/12)*100);
+    left=`<div class="hgrid">${hours}</div>
+      <div class="wbar-wrap">
+        <div class="wbar-top"><span>Peak wind vs. your limit</span><em>${c.peakKt.toFixed(1)} kt at ${c.peakAt} &middot; limit 10 kt</em></div>
+        <div class="wbar">
+          <span class="fill${c.peakKt>10?" over":""}" style="width:${pct.toFixed(1)}%"></span>
+          <span class="lim" style="left:${(10/12*100).toFixed(1)}%"></span>
+        </div>
+        <div class="wbar-scale"><span>0</span><span>4</span><span>8</span><span>12 kt</span></div>
+      </div>`;
+  }
+
+  const peakLine=c.tilt
+    ? `<span class="tagline">${c.tag}</span>`
+    : `<span class="bc-peak">peak <b>${c.peakKt.toFixed(1)} kt</b> ${c.peakDir} &middot; ${c.sea}</span>`;
+  const rainMeta=c.tilt
+    ? `<div>Precip tilt &nbsp;<span>${c.rain}</span></div>`
+    : `<div>Rain &nbsp;<span>${c.rain}</span> ${c.rainNote}</div>`;
+
+  el.innerHTML=`
+    <div class="bc-head">
+      <span class="bc-dow">${c.dow}</span>
+      <span class="bc-date">${c.date}${c.today?" &middot; today":""}</span>
+      <span class="chip ${c.rating}">${c.label}</span>
+      <span class="spacer"></span>
+      ${peakLine}
+    </div>
+    <p class="bc-sum">${c.sum}</p>
+    <div class="bc-body">
+      <div>${left}</div>
+      <div class="tp">
+        <div class="tp-top"><h4>Tide &middot; Everett</h4><span>range ${c.range}</span></div>
+        ${bigTide(c.d)}
+        <div class="tp-axis"><span>00</span><span>06</span><span>12</span><span>18</span><span>24</span></div>
+        <div class="tp-turns">${turns}</div>
+      </div>
+    </div>
+    <div class="bc-meta">
+      <div>Sun &nbsp;<span>${SUN[c.d][0]} &ndash; ${SUN[c.d][1]}</span></div>
+      <div>Daylight &nbsp;<span>${c.daylight}</span></div>
+      <div>Moon &nbsp;<span>${c.moon}</span></div>
+      ${rainMeta}
+      ${openOn(c.d).length?`<div class="open-on">Open &nbsp;<span>${openOn(c.d).join(" &middot; ")}</span></div>`:""}
+    </div>
+    ${c.win?`<p class="bc-win"><b>Best window</b>${c.win}</p>`:""}
+    <p class="bc-note">${c.note}</p>`;
+  return el;
+}
+
+/* ---------- lay out, strictly chronological ---------- */
+const byDate={};
+for(const c of DAYS)byDate[c.d]=c;
+DATES.forEach((d,i)=>{
+  const c=byDate[d];
+  if(!c)return;
+  document.getElementById("tier"+(i<5?1:i<10?2:3)).appendChild(makeCard(c));
+});
+
+/* ---------- at-a-glance strip ---------- */
+const glance=document.getElementById("glance");
+DATES.forEach(d=>{
+  const c=byDate[d];
+  if(!c)return;
+  const a=document.createElement("a");
+  a.className="gd "+c.rating+(c.today?" now":"");
+  a.href="#d"+d.replace("-","");
+  a.innerHTML=`<b>${c.dow}</b><i>${c.date.split(" ")[1]}</i><u>${c.tilt?"&mdash;":c.peakKt.toFixed(0)+"kt"}</u>`;
+  glance.appendChild(a);
+});
+</script>
+
+</body>
+</html>
