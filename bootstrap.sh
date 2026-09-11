@@ -12,7 +12,7 @@
 set -euo pipefail
 
 # ── EDIT THIS ────────────────────────────────────────────────────────────────
-REPO_URL="https://github.com/YOURUSER/tanglefoot-site.git"
+REPO_URL="https://github.com/richeicher/tanglefoot-site.git"
 DOMAIN="tanglefoot.dev"
 MARKER="OTIUM Conditions"   # must appear in index.html or the deploy is refused
 MIN_BYTES=20000
